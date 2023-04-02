@@ -5,12 +5,16 @@ import BottomNavbar from './components/BottomNavbar';
 import Slider from './components/Slider';
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Products from './components/Products';
+import Signup from './components/Signup';
+import Login from './components/Login';
 
 function App() {
   return (
     <>
     <BrowserRouter>
     <Routes>
+      <Route exact path="/login" element={<Login/>}></Route>
+     <Route exact path="/signup" element={<Signup/>}></Route>
       <Route exact path="/" element={ <Header/>}></Route>
       <Route exact path="/" element ={<Slider/>}></Route>
       <Route exact path="/" element={<BottomNavbar/>}></Route>
