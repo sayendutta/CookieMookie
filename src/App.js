@@ -7,10 +7,12 @@ import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Products from './components/Products';
 import Signup from './components/Signup';
 import Login from './components/Login';
+import ProductState from './context/products/ProductState';
 
 function App() {
   return (
     <>
+    <ProductState>
     <BrowserRouter>
     <Routes>
       <Route exact path="/login" element={<Login/>}></Route>
@@ -21,6 +23,7 @@ function App() {
       <Route exact path="/Products" element ={<Products/>}></Route>
     </Routes>
     </BrowserRouter>
+    </ProductState>
     </>
   );
 }

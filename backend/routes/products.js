@@ -61,8 +61,7 @@ router.post('/addproducts', [
         try {
             var details;
             details=await Product.find();
-            success=true;
-            return res.json({success:success,details:details})
+            return res.json(details)
         } catch (error) {
             console.error(error);
             return res.status(500).send('Internal Server Error');
