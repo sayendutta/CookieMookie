@@ -16,8 +16,20 @@ const ProductState=(props)=>{
         const product=await response.json()
         setProducts(product)  
     }
+    const getOneParticularProduct=async (pid)=>{
+        const response=await fetch(`${host}/api/products/fetchoneproduct`,{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({pid})
+        });
+        const product=await response.json()
+        setProducts(product)
+        
+    }
     return (
-        <ProductContext.Provider value={{ products,setProducts,getProducts }}>
+        <ProductContext.Provider value={{ products,setProducts,getProducts,getOneParticularProduct }}>
             {props.children}
         </ProductContext.Provider>
     )

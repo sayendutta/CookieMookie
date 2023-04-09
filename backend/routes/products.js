@@ -38,18 +38,19 @@ router.post('/addproducts', [
     router.post('/fetchoneproduct',[
         body('pid','Enter a non-empty product id').exists(),
     ],async(req,res)=>{
-        let success=false;
+        
         const errors=validationResult(req);
         if(!errors.isEmpty()){
-            return res.status(400).json({success,errors: errors.array()});
+            console.log(errors)
+            return res.status(400).json({errors: errors.array()});
         }
         try {
             var details;
             details=await Product.findById({
                 _id: req.body.pid
             })
-            success=true
-            return res.json({success:success,details:details})
+            
+            return res.json(details)
         } catch (error) {
             console.error(error);
             return res.status(500).send('Internal Server Error');
